@@ -1,11 +1,31 @@
 # SKILL-Orchestrate_Multi_Agents
 Crear, coordinar, ejecutar, permitir interacción controlada y terminar múltiples agentes de IA —en serie, en paralelo y en redes híbridas— usando exclusivamente lenguaje natural, garantizando control cognitivo, trazabilidad y seguridad.
 
+¿ Qué es esto ?
+* **Un lenguaje de orquestación cognitiva:**
+  Lenguaje en lenguaje natural que define cómo piensan, se coordinan y toman decisiones múltiples agentes de IA.
+
+* **Un sistema multi-agente gobernable:**
+  Arquitectura donde los agentes, orquestadores y sub-orquestadores operan bajo reglas explícitas, auditables y modificables.
+
+* **Un runtime declarativo auditable:**
+  Ejecución basada en declaraciones de intención y estructura, con trazabilidad completa de decisiones, flujos y autoridad.
+
+* **Sin código:**
+  No requiere programación tradicional: todo se define mediante instrucciones semánticas en lenguaje natural.
+
+* **Sin frameworks:**
+  No depende de librerías, SDKs ni stacks externos; el comportamiento emerge de las reglas cognitivas declaradas.
+
+* **Con autoridad distribuida real:**
+  El poder de decisión puede estar repartido entre agentes, evaluadores y sub-orquestadores, sin un control central obligatorio.
+
+
 Esta es la **v2.1**, incorporando **autoridad de decisión distribuida**, **sub-orquestadores como jefaturas**, **evaluadores con poder resolutivo** y **gobernanza declarativa**, todo **100 % en lenguaje natural**.
 
 ---
 
-# 🧠 SKILL SPECIFICATION — v2.1 FINAL
+# 🧠 SKILL SPECIFICATION — v2.1
 
 **Orchestrate_Multi_Agents (Distributed Governance Edition)**
 
