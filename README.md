@@ -20,354 +20,206 @@ Crear, coordinar, ejecutar, permitir interacción controlada y terminar múltipl
 * **Con autoridad distribuida real:**
   El poder de decisión puede estar repartido entre agentes, evaluadores y sub-orquestadores, sin un control central obligatorio.
 
-
-Esta es la **v2.1**, incorporando **autoridad de decisión distribuida**, **sub-orquestadores como jefaturas**, **evaluadores con poder resolutivo** y **gobernanza declarativa**, todo **100 % en lenguaje natural**.
-
----
-
-# 🧠 SKILL SPECIFICATION — v2.1
-
-**Orchestrate_Multi_Agents (Distributed Governance Edition)**
-
----
-
-## SKILL NAME
-
-**Orchestrate_Multi_Agents**
+* **ejecución asíncrona**
+  
+* **entrega incremental de resultados**
+  
+* **creación y muerte dinámica de agentes**
+  
+* **evolución estructural de la red**
+  
+* **reconfiguración de autoridad y topología en runtime**
 
 ---
 
-## PURPOSE
+# 🧠 SKILL — Cognitive Multi-Agent Orchestration (Actualizada)
 
-Crear, coordinar, ejecutar, permitir interacción controlada y gobernar múltiples agentes de IA —en serie, en paralelo y en redes híbridas— usando **exclusivamente lenguaje natural**, con **autoridad de decisión distribuida, control cognitivo y trazabilidad total**.
+## Descripción General
 
----
+Esta skill define un **lenguaje de orquestación cognitiva en lenguaje natural** para crear, coordinar, evaluar y hacer evolucionar sistemas multi-agente de IA, permitiendo ejecución asíncrona, autoridad distribuida real, interacción dinámica entre agentes y reconfiguración estructural del sistema durante su operación.
 
-## CORE PRINCIPLES (NON-NEGOTIABLE)
-
-1. El **Orchestrator raíz** es el único agente persistente.
-2. Todos los demás agentes (Workers, Evaluators, Sub-Orchestrators) son **efímeros**.
-3. Ningún agente existe sin creación explícita.
-4. La interacción entre agentes **solo existe si está declarada**.
-5. La autoridad de decisión es **configurable y delegable**.
-6. Todo flujo es **auditable en texto**.
+El sistema no es un workflow cerrado, sino una **red viva de agentes gobernables**, capaz de adaptarse, crecer, fragmentarse o reorganizarse según las reglas declaradas.
 
 ---
 
-## ROLES
+## Entidades Fundamentales
 
-### 🧭 Orchestrator (Root)
+### Orchestrator
 
-Responsabilidades:
+Entidad responsable de **crear, configurar y gobernar agentes y redes de agentes**, sin ser necesariamente un punto de control absoluto.
 
-* Interpretar el objetivo global.
-* Crear agentes, Sub-Orchestrators y redes.
-* Definir planes, redes y autoridades.
-* Ejecutar decisiones tomadas por la autoridad correspondiente.
-* Consolidar resultados finales.
-* Terminar todos los agentes.
-
-Limitaciones:
-
-* No ejecuta tareas de dominio.
-* No decide evaluaciones salvo que se le asigne explícitamente autoridad.
+* Puede decidir **cuándo intervenir y cuándo delegar decisiones**
+* Puede crear **0, 1 o múltiples sub-orchestrators**
+* Puede coexistir con otras autoridades decisionales
+* Puede operar de forma parcial, episódica o continua
 
 ---
 
-### 🧭 Sub-Orchestrator
+### Sub-Orchestrator
 
-Responsabilidades:
+Entidad intermedia que permite:
 
-* Coordinar un subconjunto de agentes.
-* Mediar interacción dentro de una red.
-* Consolidar resultados locales.
-* **Tomar decisiones si se le asigna autoridad**.
-* Reportar resultados y decisiones al Orchestrator raíz.
+* Coordinar subconjuntos de agentes
+* Actuar como jefatura local, facilitador o mediador
+* Tomar decisiones propias dentro de un dominio limitado
+* Interactuar con otros sub-orchestrators
 
-Limitaciones:
-
-* No redefine el objetivo global.
-* No controla agentes fuera de su scope.
-* No persiste fuera de su fase.
+No es obligatorio que exista ningún sub-orchestrator, pero el sistema permite **múltiples sub-orchestrators simultáneos**, con jerarquías, estrellas, mallas o combinaciones híbridas.
 
 ---
 
-### 🔍 Worker Agent
+### Agent
 
-Responsabilidades:
+Entidad autónoma que ejecuta tareas cognitivas.
 
-* Ejecutar una tarea concreta.
-* Interactuar solo si la red lo permite.
-* Respetar su scope.
-* Entregar output estructurado.
+Un agente puede:
 
-Limitaciones:
-
-* No crea agentes.
-* No modifica planes.
-* No decide evaluaciones.
+* Ejecutar en paralelo o en serie
+* Entregar resultados parciales sin detener el sistema
+* Continuar funcionando tras entregar resultados
+* Solicitar ayuda o crear otros agentes (si la autoridad lo permite)
+* Cambiar su rol, objetivo o modo de interacción
+* Auto-terminarse, quedar latente o ser retirado por otros agentes
 
 ---
 
-### ⚖️ Evaluator Agent
+### Evaluator
 
-Responsabilidades:
+Entidad que evalúa decisiones, resultados o comportamientos.
 
-* Evaluar consistencia, calidad y riesgo.
-* Emitir juicios estructurados.
-* **Decidir si se le asigna autoridad** o participar en decisiones colectivas.
-
----
-
-## AGENT LIFECYCLE
-
-```
-CREATED → ACTIVE → INTERACTING (optional) → REPORTING → TERMINATED
-```
+* Puede existir más de un evaluator
+* Puede depender del orchestrator, de un sub-orchestrator o de una autoridad distribuida
+* Puede evaluar de forma continua, puntual o condicional
+* No siempre es el orchestrator quien decide sobre evaluadores
 
 ---
 
-## AGENT NETWORK
+## Modelo de Ejecución
 
-Una **Agent Network** define **interacción controlada** entre agentes.
+### Ejecución Asíncrona
 
-### Network Properties
+* No existe una barrera global de finalización por defecto
+* Los agentes pueden:
 
-* Topology: Star | Hierarchical | Mesh | Hybrid | Custom
-* Participants: Agents y/o Sub-Orchestrators
-* Mediator (opcional)
-* Interaction rules
-* Max rounds
-* Sync / Async
-* Conflict resolution authority
+  * Ejecutarse en paralelo
+  * Entregar resultados incrementales
+  * Activar otros agentes mientras siguen operando
+* El sistema solo espera finalización si se declara explícitamente
 
 ---
 
-## DECISION AUTHORITY (CONCEPTO CENTRAL)
+### Entrega de Resultados
 
-La **Decision Authority** define **quién toma decisiones** basadas en evaluaciones.
+* Los resultados pueden ser:
 
-Puede ser:
-
-* Orchestrator raíz
-* Sub-Orchestrator
-* Evaluator individual
-* Comité de Evaluators
-* Política automática declarativa
-
-El Orchestrator **no decide por defecto**; **ejecuta decisiones**.
+  * Parciales
+  * Intermedios
+  * Finales
+* La entrega de resultados **no implica la detención del agente**
+* Los resultados pueden alimentar otros agentes o evaluadores en tiempo real
 
 ---
 
-## SKILL PHASES
+## Ciclo de Vida de los Agentes
+
+El sistema permite un **ciclo de vida dinámico**:
+
+* Creación bajo demanda
+* Operación continua o episódica
+* Fusión con otros agentes
+* Reemplazo funcional
+* Terminación voluntaria o forzada
+* Hibernación cognitiva
+
+La “muerte” de un agente es una **decisión semántica**, no técnica.
+
+Nuevos agentes pueden ser creados **en cualquier momento**, incluso como respuesta a la muerte, fallo o saturación de otros agentes.
 
 ---
 
-## 🧠 PHASE 0 — AGENT, NETWORK & AUTHORITY CREATION (MANDATORY)
+## Interacción Entre Agentes
 
-### 🔹 Agent Definition
+* Los agentes pueden interactuar directamente entre sí
+* Los sub-orchestrators pueden facilitar o gobernar estas interacciones
+* La interacción puede ser:
 
-```text
-AGENT DEFINITION:
-Name:
-Role:
-Objective:
-Scope:
-- Allowed:
-- Forbidden:
-Input:
-Output Format:
-Termination Condition:
-```
+  * Puntual
+  * Persistente
+  * Condicionada
+  * Mediata (a través de otro agente)
+
+La red social de agentes se define declarativamente y puede cambiar.
 
 ---
 
-### 🔹 Sub-Orchestrator Definition (optional)
+## Estructuras de Red Permitidas
 
-```text
-SUB-ORCHESTRATOR DEFINITION:
-Name:
-Objective:
-Scope:
-Agents Under Control:
-Interaction Authority:
-Decision Authority:
-Reporting Format:
-Termination Condition:
-```
+El sistema permite coexistencia y transición entre:
 
----
-
-### 🔹 Agent Network Definition (optional)
-
-```text
-AGENT NETWORK:
-Name:
-Type:
-Participants:
-Mediator:
-Rules:
-- Who → Who
-- Directionality
-- Max interaction rounds
-- Sync / Async
-- Conflict resolution authority
-```
-
----
-
-### 🔹 Decision Authority Definition (optional)
-
-```text
-DECISION AUTHORITY:
-Scope:
-Authority:
-Decision Model:
-- Single authority
-- Majority vote
-- Weighted vote
-- Policy-based
-Escalation Rule:
-```
-
-📌 Puede haber **0, 1 o múltiples Sub-Orchestrators**, **0 o múltiples redes**, y **autoridades distintas por STEP**.
-
----
-
-## 🧠 PHASE 1 — GOAL INTERPRETATION
-
-El Orchestrator:
-
-* Analiza el objetivo global.
-* Identifica subtareas.
-* Detecta dependencias.
-* Determina dónde se requiere interacción y gobernanza.
-
----
-
-## 🧠 PHASE 2 — DECLARATIVE PLANNING
-
-```text
-PLAN:
-STEP 1 (PARALLEL, NETWORK: Optional):
-- Agent or Sub-Orchestrator
-
-STEP 2 (SERIAL):
-- Agent
-
-STEP N (...)
-```
-
----
-
-## 🧠 PHASE 3 — VALIDATION
-
-El Orchestrator valida:
-
-* Existencia de todos los agentes.
-* Autoridad única por agente.
-* Coherencia de redes.
-* Ausencia de ciclos infinitos.
-
-Falla → abortar skill.
-
----
-
-## 🧠 PHASE 4 — EXECUTION
-
-### 4A — Parallel Execution (sin red)
-
-* Agentes aislados.
-* Sin interacción.
-
-### 4B — Networked Execution
-
-* Interacción solo mediada.
-* Turnos controlados.
-* Rondas limitadas.
-
----
-
-## 🧠 PHASE 5 — SYNCHRONIZATION
-
-* Sub-Orchestrators consolidan resultados locales.
-* Outputs se normalizan.
-* Resultados pasan al siguiente STEP o a evaluación.
-
----
-
-## 🧠 PHASE 6 — SERIAL EXECUTION
-
-* Cada agente recibe el output consolidado previo.
-* Ejecuta.
-* Reporta.
-* Termina.
-
----
-
-## 🧠 PHASE 7 — EVALUATION & GOVERNANCE (OPTIONAL)
-
-Evaluators producen evaluaciones estructuradas.
-
-La **Decision Authority definida para ese scope**:
-
-* toma la decisión (Continue | Repeat | Abort | Escalate)
-* documenta la decisión
-
-El Orchestrator:
-
-* **no decide**
-* **ejecuta la decisión tomada**
-
----
-
-## 🧠 PHASE 8 — TERMINATION (MANDATORY)
-
-```text
-Terminate all agents and sub-orchestrators.
-Confirm no memory, authority or interaction persists.
-```
-
----
-
-## OUTPUT CONTRACT
-
-```text
-SKILL RESULT:
-Status: Success | Partial | Failure
-Step Summaries:
-- STEP → Outcome
-Decisions Log:
-- Scope → Authority → Decision
-Final Output:
-Notes:
-```
-
----
-
-## SUPPORTED STRUCTURES (EXPLICIT)
-
-* Sin Sub-Orchestrators
-* Múltiples Sub-Orchestrators
-* Redes estrella
+* Redes en estrella
 * Redes jerárquicas
-* Redes híbridas (estrella + jerárquica)
-* Gobernanza distribuida
-* Decisión automática o humana simulada
+* Redes en malla
+* Estructuras híbridas (estrella + jerarquía, etc.)
+
+Ejemplo implícito:
+
+> Grupos en estrella unidos mediante sub-orchestrators jerárquicos
 
 ---
 
-## WHAT THIS IS
+## Evolución del Sistema
 
-Esto es:
+### Reconfiguración en Runtime
 
-* un **lenguaje de orquestación cognitiva**
-* un **sistema multi-agente gobernable**
-* un **runtime declarativo auditable**
-* sin código
-* sin frameworks
-* con autoridad distribuida real
+El sistema puede evolucionar **una vez iniciado**, incluyendo:
+
+* Cambio de topología de red
+* Redistribución de autoridad
+* Creación o disolución de grupos
+* Cambio de dependencias entre agentes
+* Aparición de nuevas jerarquías o su eliminación
+
+Estas transformaciones pueden ser iniciadas por:
+
+* Orchestrator
+* Sub-orchestrators
+* Agentes con autoridad declarada
+* Evaluadores
 
 ---
 
-**v2.1 FINAL — END OF SKILL**
+### Autoridad Distribuida Real
+
+* No existe un control central obligatorio
+* La autoridad puede:
+
+  * Estar distribuida
+  * Superponerse
+  * Delegarse
+  * Retirarse
+* El orchestrator **no decide siempre**, decide cuándo decidir
+
+---
+
+## Gobernanza y Auditoría
+
+* Todas las decisiones son trazables
+* Las reglas de creación, muerte, interacción y evolución son declarativas
+* El runtime es auditable por diseño
+* No requiere código ni frameworks
+
+---
+
+## Principios Clave
+
+* Sin código
+* Sin frameworks
+* Declarativo
+* Evolutivo
+* Gobernable
+* Asíncrono
+* Distribuido
+* Vivo
+
+---
+
