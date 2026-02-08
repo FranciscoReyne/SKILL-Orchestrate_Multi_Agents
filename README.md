@@ -24,7 +24,7 @@ Crear, coordinar, ejecutar, permitir interacción controlada y terminar múltipl
   
 * **entrega incremental de resultados**
   
-* **creación y muerte dinámica de agentes**
+* **creación y muerte dinámica de agentes**: Si entregar resultados matara siempre al agente, tendrías un sistema de tareas; si no siempre es así, tienes un sistema cognitivo. Un sistema de tareas hace cosas; uno cognitivo sabe cuándo, por qué y cómo seguir haciéndolas.
   
 * **evolución estructural de la red**
   
