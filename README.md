@@ -2,6 +2,11 @@
 Crear, coordinar, ejecutar, permitir interacción controlada y terminar múltiples agentes de IA —en serie, en paralelo y en redes híbridas— usando exclusivamente lenguaje natural, garantizando control cognitivo, trazabilidad y seguridad.
 
 ¿ Qué es esto ?
+.
+
+El Sistema de orquestación cognitiva de Agentes no busca reemplazar arquitecturas tradicionales en tareas estáticas, sino superarlas en escenarios dinámicos, inciertos y evolutivos, donde la adaptabilidad, la resiliencia y la gobernanza declarativa son críticas.
+Esperamos que el sistema propuesto muestre mejoras significativas en adaptabilidad, resiliencia y valor incremental, a costa de un mayor overhead cognitivo, confirmando que la orquestación cognitiva es más adecuada para problemas no estacionarios que para flujos de tareas rígidos.
+
 * **Un lenguaje de orquestación cognitiva:**
   Lenguaje en lenguaje natural que define cómo piensan, se coordinan y toman decisiones múltiples agentes de IA.
 
@@ -29,6 +34,7 @@ Crear, coordinar, ejecutar, permitir interacción controlada y terminar múltipl
 * **evolución estructural de la red**
   
 * **reconfiguración de autoridad y topología en runtime**
+
 
 ---
 
